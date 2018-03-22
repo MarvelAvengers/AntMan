@@ -1,20 +1,17 @@
 package avengers.marvel
 
+import avengers.marvel.store.DatabaseHelper
 import io.grpc.ServerBuilder
-import java.util.Properties
 
 class ApiServer {
 
     fun start() {
-//        val properties = Properties().apply {
-//            load(javaClass.getResourceAsStream("src/main/res/project.properties"))
-//        }
         val server = ServerBuilder
-            .forPort(50051)
+            .forPort(50052)
             .addService(KeyGeneratorImplementation())
             .build()
             .start()
+        DatabaseHelper()
         server.awaitTermination()
-
     }
 }
