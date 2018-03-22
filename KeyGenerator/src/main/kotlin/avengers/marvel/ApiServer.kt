@@ -4,6 +4,7 @@ import avengers.marvel.store.DatabaseHelper
 import io.grpc.ServerBuilder
 
 class ApiServer {
+    private val dbHelper = DatabaseHelper()
 
     fun start() {
         val server = ServerBuilder
@@ -11,7 +12,6 @@ class ApiServer {
             .addService(KeyGeneratorImplementation())
             .build()
             .start()
-        DatabaseHelper()
         server.awaitTermination()
     }
 }

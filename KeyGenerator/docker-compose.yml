@@ -1,8 +1,7 @@
 postgres:
-  image: postgres
+  image: mysql
   ports:
-    - "5432:5432"
+    - "3306:3306"
   environment:
-    POSTGRES_USER: 'user'
-    POSTGRES_PASSWORD: 'password'
-    POSTGRES_DB: 'keys'
+    MYSQL_ROOT_PASSWORD: 'password'
+    MYSQL_DATABASE: 'keys'
